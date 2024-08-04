@@ -1,32 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "user.h"
+#include "data_controller.h"
 using namespace std;
-
-static void write_to_file(string data){
-    ofstream out;
-    out.open("users.txt");
-    if (out.is_open())
-    {
-        out << data;
-    }
-    out.close(); 
-}
-
-static void read_from_file(){
-    ifstream in;
-    in.open("users.txt");
-    if (in.is_open())
-    {
-        string line;
-        while (getline(in, line))
-        {
-            cout << line << endl;
-        }
-    }
-    in.close();
-}
 
 int main() {
     string fname, lname;
@@ -41,8 +17,9 @@ int main() {
     cin >> month;
     cout << "Enter your birth year: ";
     cin >> year;
-    user u(fname, lname, day, month, year);
-    write_to_file(u.print());
-    read_from_file();
+    data_controller dc;
+    dc.add_user(fname, lname, day, month, year);
+    dc.print();
+    dc.save();
     return 0;
 }
