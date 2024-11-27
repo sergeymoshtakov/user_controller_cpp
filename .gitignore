@@ -1,2 +1,4 @@
 my_program
 users.txt
+build/
+.vscode/

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "data_controller.h"
+#include "../include/data_controller.h"
 using namespace std;
 
 int main() {
